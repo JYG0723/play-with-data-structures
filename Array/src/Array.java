@@ -157,12 +157,16 @@ public class Array<E> {
      * @return
      */
     public E remove(int index) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("index is illegal");
         }
         E res = data[index];
-        for (int i = index; i < size; i++) {
+        // 这么设计容易在删除数组最后一个元素的时候 数组越界。
+        /*for (int i = index; i < size; i++) {
             data[i] = data[i + 1];
+        }*/
+        for (int i = index + 1; i < size; i++) {
+            data[i - 1] = data[i];
         }
         // 释放无效对象
         size--;
