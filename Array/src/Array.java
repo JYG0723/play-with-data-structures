@@ -216,4 +216,16 @@ public class Array<E> {
         dataRes.append("]");
         return dataRes.toString();
     }
+
+    /**
+     * 将数组空间的容量变成newCapacity大小
+     *
+     * @param newCapacity
+     */
+    private void resize(int newCapacity) {
+        E[] newData = (E[]) new Object[newCapacity];
+        for (int i = 0; i < size; i++)
+            newData[i] = data[i];
+        data = newData;
+    }
 }
