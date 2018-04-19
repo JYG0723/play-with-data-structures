@@ -39,5 +39,9 @@ public class Main {
         LoopQueue<Integer> loopQueue = new LoopQueue<>();
         double loopTime = testQueue(loopQueue, count);
         System.out.printf("LoopQueue Time: %f\n", loopTime);
+
+        LinkedListQueue<Integer> linkedListQueue = new LinkedListQueue<>();
+        double linkedListTime = testQueue(linkedListQueue, count);
+        System.out.printf("LinkedListQueue Time: %f\n", linkedListTime);
     }
 }
