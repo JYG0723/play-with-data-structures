@@ -369,4 +369,55 @@ public class BinarySerachTree<E extends Comparable<E>> {
         root.right = removeMin(root.right);
         return root;
     }
+
+
+    /**
+     * 删除二叉搜索树元素为e的节点
+     *
+     * @param e
+     */
+    public void remove(E e) {
+        root = remove(root, e);
+    }
+
+    private Node remove(Node root, E e) {
+
+        if (root == null) {
+            return null;
+        }
+
+        if (e.compareTo(root.value) < 0) {
+            root.left = remove(root.left, e);
+            return root;
+        } else if (e.compareTo(root.value) > 0) {
+            root.right = remove(root.right, e);
+            return root;
+        } else {
+            if (root.left == null) {
+                Node rightNode = root.right;
+                root.right = null;
+                size--;
+                return rightNode;
+            }
+            if (root.right == null) {
+                Node leftNode = root.left;
+                root.left = null;
+                size--;
+                return leftNode;
+            }
+            // 左右子树均不为空
+            Node successor = minimum(root.right);
+            // 这一步只是把successor提上来了。并没有真正删除，但是函数中size确实-1了。
+            successor.right = removeMin(root.right);
+            successor.left = root.left;
+
+            // 释放 root 节点左右指针变量
+            // 预删除 root 节点。由于前面removeMin函数已经-1过了。所以不需要再-1了。
+            root.left = root.right = null;
+
+            // 右子树被删的节点的新右子树1
+            // root 节点被真实删除
+            return successor;
+        }
+    }
 }
