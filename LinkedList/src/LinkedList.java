@@ -252,6 +252,7 @@ public class LinkedList<E> {
         }
 
         //TODO 两种情况
+
         if (prev.next != null) {
             Node delNode = prev.next;
             prev.next = delNode.next;
