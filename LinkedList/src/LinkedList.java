@@ -235,4 +235,28 @@ public class LinkedList<E> {
     public E removeLast() {
         return remove(size - 1);
     }
+
+    /**
+     * 从链表中删除指定元素e
+     *
+     * @param e
+     */
+    public void removeElement(E e) {
+
+        Node prev = dummyHead;
+        while (prev.next != null) {
+            if (prev.next.e.equals(e)) {
+                break;
+            }
+            prev = prev.next;
+        }
+
+        //TODO 两种情况
+        if (prev.next != null) {
+            Node delNode = prev.next;
+            prev.next = delNode.next;
+            delNode.next = null;
+            size--;
+        }
+    }
 }
