@@ -75,7 +75,7 @@ public class Array<E> {
             throw new IllegalArgumentException("Array - add - Required index > 0 && index < data.size");
         }
         if (size == data.length) {
-            throw new IllegalArgumentException("Array - add - data array has full");
+            resize(data.length << 1);
         }
         for (int i = size - 1; i >= index; i--) {
             data[i + 1] = data[i];
@@ -161,16 +161,16 @@ public class Array<E> {
             throw new IllegalArgumentException("index is illegal");
         }
         E res = data[index];
-        // 这么设计容易在删除数组最后一个元素的时候 数组越界。
-        /*for (int i = index; i < size; i++) {
-            data[i] = data[i + 1];
-        }*/
         for (int i = index + 1; i < size; i++) {
             data[i - 1] = data[i];
         }
         // 释放无效对象
         size--;
         data[size] = null;
+
+        if (size == data.length / 4 && data.length / 2 != 0) {
+            resize(data.length >> 1);
+        }
         return res;
     }
 
