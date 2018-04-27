@@ -5,7 +5,7 @@ import java.util.Stack;
 /**
  * @author Ji YongGuang.
  * @date 16:11 2018/4/18.
- * LeetCode_20
+ * 有效的括号
  */
 public class LeetCode_20 {
 
