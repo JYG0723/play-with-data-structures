@@ -3,39 +3,43 @@ import java.util.ArrayList;
 /**
  * @author Ji YongGuang.
  * @date 7:51 2018/4/26.
+ * 用来测Set集合的不同实现方式的性能差异
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static double testSet(Set<String> set, String fileName) {
 
-        System.out.println("Pride and Prejudice");
+        Long startTime = System.nanoTime();
 
+        // 统计词汇
+        System.out.println(fileName);
         ArrayList<String> words1 = new ArrayList<>();
-        if (FileOperation.readFile("pride-and-prejudice.txt", words1)) {
+        if (FileOperation.readFile("E:\\IntelliJ IDEA " +
+                "2017.1Projects\\PlayWithDataStructures\\Set\\" + fileName, words1)) {
             System.out.println("Total words: " + words1.size());
-
-            BSTSet<String> set1 = new BSTSet<>();
             for (String word : words1) {
-                set1.add(word);
+                set.add(word);
             }
-            System.out.println("Total different words: " + set1.getSize());
+            System.out.println("Total different words: " + set.getSize());
         }
 
+        Long endTime = System.nanoTime();
+
+        // 精确到浮点
+        return (endTime - startTime) / Math.pow(10, 9) / 1.0;
+    }
+
+    public static void main(String[] args) {
+        String fileName = "pride-and-prejudice.txt";
+
+        BSTSet<String> bstSet = new BSTSet<>();
+        double bstTime = testSet(bstSet, fileName);
+        System.out.printf("BSTSet Spend Time: %f s\n", bstTime);
 
         System.out.println();
 
-
-        System.out.println("A Tale of Two Cities");
-
-        ArrayList<String> words2 = new ArrayList<>();
-        if (FileOperation.readFile("a-tale-of-two-cities.txt", words2)) {
-            System.out.println("Total words: " + words2.size());
-
-            BSTSet<String> set2 = new BSTSet<>();
-            for (String word : words2) {
-                set2.add(word);
-            }
-            System.out.println("Total different words: " + set2.getSize());
-        }
+        LinkedListSert<String> linkedListSert = new LinkedListSert<>();
+        double linkedTime = testSet(linkedListSert, fileName);
+        System.out.printf("LinkedListSet Spend Time: %f s\n", linkedTime);
     }
 }

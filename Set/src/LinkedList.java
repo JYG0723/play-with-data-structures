@@ -74,6 +74,7 @@ public class LinkedList<E> {
 
         Node pre = dummyHead;
         // 找到节点插入位置的前驱节点
+
         for (int i = 0; i < index; i++) {
             pre = pre.next;
         }
