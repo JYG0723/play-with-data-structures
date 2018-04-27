@@ -75,7 +75,7 @@ public class Array<E> {
             throw new IllegalArgumentException("Array - add - Required index > 0 && index < data.size");
         }
         if (size == data.length) {
-            throw new IllegalArgumentException("Array - add - data array has full");
+            resize(2 * data.length);
         }
         for (int i = size - 1; i >= index; i--) {
             data[i + 1] = data[i];
@@ -161,16 +161,16 @@ public class Array<E> {
             throw new IllegalArgumentException("index is illegal");
         }
         E res = data[index];
-        // 这么设计容易在删除数组最后一个元素的时候 数组越界。
-        /*for (int i = index; i < size; i++) {
-            data[i] = data[i + 1];
-        }*/
         for (int i = index + 1; i < size; i++) {
             data[i - 1] = data[i];
         }
         // 释放无效对象
         size--;
         data[size] = null;
+
+        if(size == data.length / 4 && data.length / 2 != 0) {
+            resize(data.length / 2);
+        }
         return res;
     }
 
@@ -228,8 +228,26 @@ public class Array<E> {
      */
     private void resize(int newCapacity) {
         E[] newData = (E[]) new Object[newCapacity];
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < size; i++) {
             newData[i] = data[i];
+        }
         data = newData;
+    }
+
+    /**
+     * 交换数组中量元素的值
+     *
+     * @param i
+     * @param j
+     */
+    public void swap(int i, int j) {
+
+        if (i < 0 || i >= size || j < 0 || j >= size) {
+            throw new IllegalArgumentException("Index is illegal.");
+        }
+
+        E t = data[i];
+        data[i] = data[j];
+        data[j] = t;
     }
 }
