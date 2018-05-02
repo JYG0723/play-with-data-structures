@@ -3,6 +3,7 @@
  * @date 11:33 2018/4/27.
  * 基于Array实现的MaxHeap
  */
+@SuppressWarnings("JavaDoc")
 public class MaxHeap<E extends Comparable<E>> {
 
     private Array<E> array;
@@ -23,7 +24,6 @@ public class MaxHeap<E extends Comparable<E>> {
                 ; i--) {
             siftDown(i);
         }
-
     }
 
     public int getSize() {
@@ -43,7 +43,7 @@ public class MaxHeap<E extends Comparable<E>> {
         if (index == 0) {
             throw new IllegalArgumentException("index-0 doesn't have parent.");
         }
-        return (index - 1) >> 1;
+        return index - 1 >> 1;
     }
 
     /**
@@ -87,7 +87,7 @@ public class MaxHeap<E extends Comparable<E>> {
                 parent(index)).compareTo(array.get(index)) < 0) {
             // 换值 但是index任指向原来的位置
             array.swap(index, parent(index));
-            // index 指向也上移
+            // index 指针也上移，跟着这个还未被准确定为的节点
             index = parent(index);
         }
     }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
  * @date 15:23 2018/4/26.
  * 基于链表实现的映射
  */
+@SuppressWarnings({"JavaDoc", "unchecked"})
 public class LinkedListMap<K, V> implements Map<K, V> {
 
     private class Node<K, V> {
@@ -41,7 +42,7 @@ public class LinkedListMap<K, V> implements Map<K, V> {
     }
 
     /**
-     * 查找当前链表映射中有无key 对应的节点
+     * 查找当前链表映射中 key 对应的节点
      *
      * @param key
      * @return
