@@ -74,7 +74,13 @@ public class BinarySerachTree<E extends Comparable<E>> {
             root.left = new Node(e);
             size++;
             return;
-        }*/
+        }
+
+        if(e.compareTo(node.e) < 0)
+            add(node.left, e);
+        else //e.compareTo(node.e) > 0
+            add(node.right, e);
+        */
 
         if (root == null) {
             size++;
