@@ -11,7 +11,7 @@ public class Main {
 
         Long startTime = System.nanoTime();
 
-        // 统计词汇
+        // 统计词汇/
         System.out.println(fileName);
         ArrayList<String> words1 = new ArrayList<>();
         if (FileOperation.readFile("E:\\IntelliJ IDEA " +
