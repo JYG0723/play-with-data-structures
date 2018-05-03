@@ -5,11 +5,11 @@ import java.util.ArrayList;
  * @date 9:14 2018/4/26.
  * 基于链表实现的Set集合
  */
-public class LinkedListSert<E> implements Set<E> {
+public class LinkedListSet<E> implements Set<E> {
 
     private LinkedList<E> linkedList;
 
-    public LinkedListSert() {
+    public LinkedListSet() {
         linkedList = new LinkedList<>();
     }
 
@@ -49,7 +49,7 @@ public class LinkedListSert<E> implements Set<E> {
         if (FileOperation.readFile("E:\\IntelliJ IDEA 2017.1Projects\\PlayWithDataStructures\\Set\\pride-and-prejudice.txt", words1)) {
             System.out.println("Total words: " + words1.size());
 
-            LinkedListSert<String> set1 = new LinkedListSert<>();
+            LinkedListSet<String> set1 = new LinkedListSet<>();
             for (String word : words1) {
                 set1.add(word);
             }
@@ -66,7 +66,7 @@ public class LinkedListSert<E> implements Set<E> {
         if (FileOperation.readFile("E:\\IntelliJ IDEA 2017.1Projects\\PlayWithDataStructures\\Set\\a-tale-of-two-cities.txt", words2)) {
             System.out.println("Total words: " + words2.size());
 
-            LinkedListSert<String> set2 = new LinkedListSert<>();
+            LinkedListSet<String> set2 = new LinkedListSet<>();
             for (String word : words2) {
                 set2.add(word);
             }

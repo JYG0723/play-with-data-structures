@@ -38,7 +38,7 @@ public class Main {
 
         System.out.println();
 
-        LinkedListSert<String> linkedListSert = new LinkedListSert<>();
+        LinkedListSet<String> linkedListSert = new LinkedListSet<>();
         double linkedTime = testSet(linkedListSert, fileName);
         System.out.printf("LinkedListSet Spend Time: %f s\n", linkedTime);
     }
