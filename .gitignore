@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+Array/.idea/
+Array/Array.iml
+BinarySerachTree/BinarySerachTree.iml
+Heap/Heap.iml
+LeetCode/LeetCode.iml
+LinkedList/LinkedList.iml
+Map/Map.iml
+Queue/Queue.iml
+Set/Set.iml
+Sort/Sort.iml
+Stack/Stack.iml
+out/

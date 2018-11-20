@@ -13,6 +13,11 @@ public class BSTSet<E extends Comparable<E>> implements Set<E> {
         binarySerachTree = new BinarySerachTree<>();
     }
 
+    /**
+     * 如果集合中已经存在该元素不做处理
+     *
+     * @param e
+     */
     @Override
     public void add(E e) {
         binarySerachTree.add(e);

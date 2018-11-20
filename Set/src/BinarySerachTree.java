@@ -58,7 +58,7 @@ public class BinarySerachTree<E extends Comparable<E>> {
 
     /**
      * 向二叉搜索树中有序的添加一个元素 真正处理逻辑
-     *
+     * 如果集合中已经存在该元素不做处理
      * @param root
      * @param e
      */
