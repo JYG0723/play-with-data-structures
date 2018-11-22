@@ -1,10 +1,10 @@
-package leetcode.leetcode_203;
+package leetcode.leetcode_203.leetcode_203_first;
 
 /**
  * @author Ji YongGuang.
  * @date 7:53 2018/4/20.
  */
-public class Solution2 {
+public class LeetCode_203_2 {
 
     public ListNode removeElements(ListNode head, int val) {
 
@@ -21,16 +21,5 @@ public class Solution2 {
         }
 
         return dummyNode.next;
-    }
-
-    public static void main(String[] args) {
-        int[] arr = {1,2,3,4,2};
-
-        ListNode head = new ListNode(arr);
-
-        ListNode newHead = new Solution2().removeElements(head, 2);
-
-        System.out.println(newHead);
-
     }
 }

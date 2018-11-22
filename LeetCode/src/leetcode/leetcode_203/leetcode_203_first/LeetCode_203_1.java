@@ -1,4 +1,4 @@
-package leetcode.leetcode_203;
+package leetcode.leetcode_203.leetcode_203_first;
 
 /**
  * @author Ji YongGuang.
@@ -12,7 +12,7 @@ package leetcode.leetcode_203;
  * }
  * 删除链表中的元素
  */
-public class LeetCode_203 {
+public class LeetCode_203_1 {
 
     class Solution {
 

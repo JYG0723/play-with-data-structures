@@ -1,10 +1,10 @@
-package leetcode.leetcode_203;
+package leetcode.leetcode_203.leetcode_203_first;
 
 /**
  * @author Ji YongGuang.
  * @date 7:53 2018/4/20.
  */
-public class Solution3 {
+public class LeetCode_203_3 {
 
     public ListNode removeElements(ListNode head, int val) {
         // 判断极值
@@ -29,7 +29,7 @@ public class Solution3 {
 
         ListNode head = new ListNode(arr);
 
-        ListNode newHead = new Solution3().removeElements(head, 2);
+        ListNode newHead = new LeetCode_203_3().removeElements(head, 2);
 
         System.out.println(newHead);
 
