@@ -13,7 +13,9 @@ public class Main {
         ArrayStack<Integer> arrayStack = new ArrayStack<>();
         double arratTime = testStack(arrayStack, count);
         System.out.printf("ArrayStack time: %f\n", arratTime);
-
+        // ArrayStack，LinkedListStack 两者时间差异仅仅是发生在ArrayStack底层数组会发生扩容耗时。
+        // LinkedListStack 耗时的地方则在new Node时的new操作上，因为要寻找空间，并且开辟空间等。
+        // 两者的push和pop操作都是O(1)级别。
         LinkedListStack<Integer> linkedListStack = new LinkedListStack<>();
         double linkedListTime = testStack(linkedListStack, count);
         System.out.printf("LinkedList time: %f\n", linkedListTime);

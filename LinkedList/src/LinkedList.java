@@ -18,9 +18,9 @@ public class LinkedList<E> {
         this.size = 0;
     }
 
-    private class Node {
-        public E e;
-        public Node next;
+    private static class Node<E> {
+        E e;
+        Node next;
 
         public Node(E e, Node next) {
             this.e = e;
@@ -63,7 +63,7 @@ public class LinkedList<E> {
      * 在链表的index(0-based)位置添加新的元素e
      * 在链表中不是一个常用的操作
      *
-     * @param index
+     * @param index 数组下标式索引
      * @param e
      */
     public void add(int index, E e) {
@@ -113,12 +113,13 @@ public class LinkedList<E> {
             throw new IllegalArgumentException("Add failed. Illegal index.");
         }
 
+        // 如果从dummyHead开始遍历，那么当index为0的时候，返回值需要特殊处理
         Node cur = dummyHead.next;
         for (int i = 0; i < index; i++) {
             cur = cur.next;
         }
 
-        return cur.e;
+        return (E) cur.e;
     }
 
     /**
@@ -215,7 +216,7 @@ public class LinkedList<E> {
         removeNode.next = null;
         size--;
 
-        return removeNode.e;
+        return (E) removeNode.e;
     }
 
     /**

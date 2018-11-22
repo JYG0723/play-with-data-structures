@@ -56,7 +56,7 @@ public class Array<E> {
     /**
      * 所有元素后添加一个元素
      * 由于底层调用add函数，有可能触发resize函数，所有按最坏情况考虑。
-     * 复杂度O(n)
+     * 均摊复杂度O(1)
      *
      * @param e
      */
@@ -201,7 +201,7 @@ public class Array<E> {
     /**
      * 从数组中删除尾元素，并返回值
      * 由于底层调用remove函数，有可能触发resize函数，所有按最坏情况考虑。
-     * 复杂度O(n)
+     * 均摊复杂度O(1)
      *
      * @return
      */

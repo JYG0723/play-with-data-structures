@@ -49,6 +49,11 @@ public class LoopQueue<E> implements Queue<E> {
         return data.length - 1;
     }
 
+    /**
+     * O(1) 均摊
+     *
+     * @param e
+     */
     @Override
     public void enQueue(E e) {
         if ((tail + 1) % data.length == front) {
@@ -60,6 +65,10 @@ public class LoopQueue<E> implements Queue<E> {
         size++;
     }
 
+    /**
+     * 0(1) 均摊
+     * @return
+     */
     @Override
     public E deQueue() {
         if (isEmpty()) {
