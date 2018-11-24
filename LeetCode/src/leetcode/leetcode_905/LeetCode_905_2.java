@@ -14,7 +14,7 @@ package leetcode.leetcode_905;
  * <p>
  * 用时:11ms
  */
-public class LeetCode_905_Solution2 {
+public class LeetCode_905_2 {
 
     /**
      * 提示：
@@ -46,7 +46,7 @@ public class LeetCode_905_Solution2 {
     }
 
     public static void main(String[] args) {
-        LeetCode_905_Solution2 leetCode_905 = new LeetCode_905_Solution2();
+        LeetCode_905_2 leetCode_905 = new LeetCode_905_2();
         int[] target = new int[]{2, 4, 3, 1};
         int[] res = leetCode_905.sortArrayByParity(target);
         for (int i = 0; i < res.length; i++) {

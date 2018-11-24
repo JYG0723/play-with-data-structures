@@ -9,7 +9,7 @@ import java.util.Stack;
  * 先判断特殊情况，由于3种括号，每种括号都必须被左右类型括号所匹配。
  * 所以每种类型的括号一定是偶数个。所以我们可以对3种类型每种括号进行计数，最后对3个总数对2进行取余。
  */
-public class LeetCode_20_Second {
+public class LeetCode_20_2 {
 
     /**
      * 输入: "()"

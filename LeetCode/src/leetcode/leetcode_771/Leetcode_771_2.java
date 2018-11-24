@@ -5,7 +5,7 @@ package leetcode.leetcode_771;
  * @date 10:07 2018/11/21.
  * @description
  */
-public class Leetcode_771_Second {
+public class Leetcode_771_2 {
 
     public static int numJewelsInStones(String J, String S) {
 

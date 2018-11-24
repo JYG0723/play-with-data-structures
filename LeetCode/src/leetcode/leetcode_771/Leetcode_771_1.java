@@ -5,7 +5,7 @@ package leetcode.leetcode_771;
  * @date 9:21 2018/11/21.
  * @description 宝石与石头
  */
-public class Leetcode_771 {
+public class Leetcode_771_1 {
 
     /**
      * 输入: J = "aA", S = "aAAbbbb"
