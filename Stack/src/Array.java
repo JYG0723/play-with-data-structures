@@ -178,17 +178,19 @@ public class Array<E> {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("index is illegal");
         }
+
         E res = data[index];
+
         for (int i = index + 1; i < size; i++) {
             data[i - 1] = data[i];
         }
-        // 释放无效对象
         size--;
         data[size] = null;
 
         if (size == data.length / 4 && data.length / 2 != 0) {
             resize(data.length >> 1);
         }
+
         return res;
     }
 
