@@ -12,9 +12,14 @@ public class BinarySerachTree<E extends Comparable<E>> {
     public Node root;
     public int size;
 
+    public BinarySerachTree(E e) {
+        this.root = new Node(e);
+        this.size = 1;
+    }
+
     public BinarySerachTree() {
-        root = null;
-        size = 0;
+        this.root = null;
+        this.size = 0;
     }
 
     private class Node {
@@ -64,7 +69,7 @@ public class BinarySerachTree<E extends Comparable<E>> {
      */
     private Node add(Node root, E e) {
 
-        /*if (root.value.compareTo(e) == 0) {
+        /*if (root.value.compareTo(e) == 0) {// 不添加重复元素
             return;
         } else if (root.value.compareTo(e) < 0 && root.right == null) {
             root.right = new Node(e);
@@ -143,7 +148,7 @@ public class BinarySerachTree<E extends Comparable<E>> {
 
         System.out.println(root.value);
         preOrder(root.left);
-        preOrder(root.right);
+            preOrder(root.right);
     }
 
     /**
@@ -157,13 +162,26 @@ public class BinarySerachTree<E extends Comparable<E>> {
         while (stack.isEmpty()) {
             Node cur = stack.pop();
             System.out.println(cur.value);
-            // 入栈顺序 先右后左 才能保证在遍历输出栈中节点的时候 先出来的是前一节点的左孩子。否则出来的是右孩子
+
             if (cur.right != null) {
                 stack.push(cur.right);
             }
             if (cur.left != null) {
                 stack.push(cur.left);
             }
+        }
+    }
+
+    /**
+     * 二分搜索树的中序非递归遍历
+     */
+    public void inOrderNonR() {
+        Node cur = root;
+        Stack stack = new Stack();
+        stack.push(cur);
+        if (!stack.isEmpty()) {
+            stack.push(cur);
+            cur = cur.left;
         }
     }
 
@@ -193,6 +211,7 @@ public class BinarySerachTree<E extends Comparable<E>> {
         generateBSTString(root.right, depth + 1, res);
     }
 
+    // 生成每层树的节点前 `--` ，用来区分树的不同层的标识
     private String generateDepthString(int depth) {
         StringBuilder res = new StringBuilder();
         for (int i = 0; i < depth; i++) {
@@ -272,6 +291,7 @@ public class BinarySerachTree<E extends Comparable<E>> {
         while (!queue.isEmpty()) {
             Node cur = queue.poll();
             System.out.println(cur.value);
+
             if (cur.left != null) {
                 queue.add(cur.left);
             }
@@ -337,6 +357,12 @@ public class BinarySerachTree<E extends Comparable<E>> {
         return e;
     }
 
+    /**
+     * 删除以root节点为根的树的最小值
+     *
+     * @param root 树的根节点
+     * @return
+     */
     private Node removeMin(Node root) {
 
         if (root.left == null) {
@@ -350,6 +376,19 @@ public class BinarySerachTree<E extends Comparable<E>> {
         root.left = removeMin(root.left);
         return root;
     }
+
+   /* private Node removeM(Node node) {
+
+        if (node.left == null) {// 如果当前节点没有左孩子那么处理掉当前节点，并善后
+            Node curNode = node.right;
+            node.right = null;
+            size--;
+            return curNode;
+        }
+
+        node.left = removeM(node.left);
+        return node;
+    }*/
 
     /**
      * 删除当前搜索二叉树的最大值e
@@ -398,7 +437,7 @@ public class BinarySerachTree<E extends Comparable<E>> {
         } else if (e.compareTo(root.value) > 0) {
             root.right = remove(root.right, e);
             return root;
-        } else {
+        } else {// root.value = e
             if (root.left == null) {
                 Node rightNode = root.right;
                 root.right = null;
@@ -423,6 +462,12 @@ public class BinarySerachTree<E extends Comparable<E>> {
 
             // 右子树被删的节点的新右子树1
             // root 节点被真实删除
+
+            // 右子树替代该删除节点
+            /*Node success = maximum(root.left);
+            success.left = removeMax(root.left);
+            success.right = root.right;
+            root.left = root.right = null;*/
             return successor;
         }
     }
