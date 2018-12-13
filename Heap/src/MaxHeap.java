@@ -83,8 +83,7 @@ public class MaxHeap<E extends Comparable<E>> {
     private void siftUp(int index) {
 
         // 在一层一层的走 所以是O(logN)
-        while (index > 0 && array.get(
-                parent(index)).compareTo(array.get(index)) < 0) {
+        while (index > 0 && array.get(parent(index)).compareTo(array.get(index)) < 0) {
             // 换值 但是index任指向原来的位置
             array.swap(index, parent(index));
             // index 指针也上移，跟着这个还未被准确定为的节点
@@ -123,19 +122,23 @@ public class MaxHeap<E extends Comparable<E>> {
      */
     public void siftDown(int index) {
 
+        //todo 堆顶元素出堆 -> 1. 最后一个元素数值替换堆顶元素 2. 删除最后一个元素 3. 新的堆顶元素下沉 4. 返回堆顶元素
+        //todo 堆顶元素下沉 -> 循环比较下沉元素如果大于左或右孩子节点
+
         // 有左孩子
         while (leftChild(index) < array.getSize()) {
             int i = leftChild(index);
 
-            // 右孩子也有且元素值大于左孩子
+            // 右孩子也有且元素值大于左孩子 取数值较大的那个元素进行替换
             if (rightChild(index) < array.getSize() && array.get(i + 1).compareTo(array.get(i)) > 0) {
                 i = rightChild(index);
             }
 
-            // 在一层一层的走 所以是O(logN)
+            // 大于孩子节点即位置到了，退出循环不再下沉
             if (array.get(index).compareTo(array.get(i)) >= 0) {
                 break;
             }
+            // 更换数值继续下沉
             array.swap(index, i);
             index = i; // 这步别忘
         }
